@@ -1,14 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 
-const SortDropdown: React.FC = () => {
+type Props = {
+    sortOption: string;
+    setSortoption: (option: string) => void;
+};
 
-    const[sortOption, setSortOption] = useState("");
-
-    return(
+const SortDropdown: React.FC<Props> = ({ sortOption, setSortoption}) => {
+      return(
         <div>
             <h4>Sort By</h4>
 
-            <select onChange={(e) => setSortOption(e.target.value)} value={sortOption} >
+            <select value={sortOption}onChange={(e)=>setSortoption(e.target.value)}>
                 <option value="">Select</option>
                 <option value="Popularity">Popularity</option>
                 <option value="Release-year">Release Year</option>

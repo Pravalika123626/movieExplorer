@@ -1,14 +1,14 @@
 import React, {useState} from "react";
-import { useDispatch, UseDispatch } from "react-redux";
+//import { useDispatch} from "react-redux";
 import { fetchMovies } from "../redux/movieSlice";
-
+import {useAppDispatch} from "../Hooks"
 const SearchBar: React.FC = () => {
-    const [query,setQuery]=useState("");
+    const [query,setquery]=useState("");
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const handleSearch=(e:React.FormEvent) => {
         e.preventDefault();
-        dispatch(fetchMovies());
+        dispatch(fetchMovies(""));
 
     };
 
@@ -21,7 +21,7 @@ const SearchBar: React.FC = () => {
             type="text"
             placeholder="search movies.."
             value={query}
-            onChange={(e) => setQuery(e.target.value)}/>
+            onChange={(e) => setquery(e.target.value)}/>
             <button type="submit"></button>
             </form>
             </div>
